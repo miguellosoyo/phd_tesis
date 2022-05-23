@@ -12,7 +12,7 @@ pd.options.display.max_rows = None
 pd.options.display.max_columns = None
 
 # Importar información
-data = pd.read_csv('https://github.com/miguellosoyo/phd_tesis/blob/main/Base%201.csv', encoding='latin')
+data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
 
 # Integrar a la barra lateral la selección de concesionarios y tipo de reporte
 with st.sidebar:
