@@ -25,9 +25,7 @@ with st.sidebar:
 # Definir elementos de la página
 st.title('Registro de Análisis')  
 
-st.write(f'''
-         Evolución de Comportamiento del Paciente: {name}
-         ''')
+st.write(f'Evolución del Comportamiento de Consumo: {name}')
 
 # Filtrar información por paciente
 df = data[data['Nombre']==name].melt(id_vars=['ID', 'Nombre'], var_name='Semana', value_name='Cigarros').copy()
@@ -40,7 +38,7 @@ line = alt.Chart(df).mark_line(point=True).encode(
        ).properties(
            title=f'Consumo de Cigarros {name}',
            width=600,
-           height=150,
+           height=250,
            )
 
 # Integrar la gráfica del paciente
