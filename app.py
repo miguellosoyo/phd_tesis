@@ -1,13 +1,8 @@
 # Importar librerías de trabajo
 import streamlit as st
-import numpy as np
-import pandas as pd
 import altair as alt
-import os
-
-# Definir las opciones de pandas para visualizar todos los registros y columnas
-pd.options.display.max_rows = None
-pd.options.display.max_columns = None
+import pandas as pd
+from vega_datasets import data
 
 # Importar información
 data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
@@ -20,46 +15,56 @@ with st.sidebar:
   names = sorted(data['Usuario'].tolist())
   name = st.selectbox(label='Selección del Usuario', options=names)
 
-# Definir elementos de la página
-st.title('Registro de Análisis')  
-
-st.write(f'Evolución del Comportamiento de Consumo: {name}')
-
 # Filtrar información por paciente
 df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
 df['Semana'] = df['Semana'].astype(int)
 
 # Crear la gráfica de líneas
 x_lim = [1, df['Semana'].max()]
-y_lim = [0, df['Cigarros'].max()+4]
+y_lim = [0, df['Cigarros'].max()+2]
+
+# Definir un DataFrame para las etiquetas de las secciones
+sections = pd.DataFrame([
+                         {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                         {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                         {'Semana':3.8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Linea Base'},
+                         {'Semana':7.3, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
+                         {'Semana':21, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
+                         ])
+
+# Crear la gráfica de líneas
 line = alt.Chart(df).mark_line(point=True).encode(
        x=alt.X('Semana:Q', title='Semanas', axis=alt.Axis(tickCount=df.shape[0]), scale=alt.Scale(domain=x_lim, nice=False)),
-       y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim)),
+       y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1]+2)))),
        color='Usuario:N',
        )
 
-# Definir líneas de separación para segmentos de línea Base y Tratamiento
-line_base = pd.DataFrame({'x':[4]})
-treatment = pd.DataFrame({'x':[8]})
-vline_1 = alt.Chart(line_base).mark_rule(color='red', strokeWidth=1.3).encode(x=alt.X('x:Q', scale=alt.Scale(domain=x_lim, nice=False)))
-vline_2 = alt.Chart(treatment).mark_rule(color='red', strokeWidth=1.3).encode(x=alt.X('x:Q', scale=alt.Scale(domain=x_lim, nice=False)))
+# Aplicar la regla de división por sección de Línea Base, Tratamiento y Seguimiento
+rule = alt.Chart(sections).mark_rule(
+    color='red',
+    strokeWidth=2
+).encode(
+    x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False))
+).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8))
 
-# Definir texto de secciones
-text1 = alt.Chart({'values':[{'x': 2.5, 'Cigarros':df['Cigarros'].max()+2.5}]}).mark_text(
-    text='Linea Base', angle=0, fontWeight=alt.FontWeight('bold')).encode(x='x:Q', y='Cigarros:Q')
+# Integrar textos, usando el DataFrame de secciones
+text = alt.Chart(sections).mark_text(
+    align='right',
+    baseline='middle',
+    # dx=7,
+    dy=-140,
+    size=10
+).encode(x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False)), 
+        #  y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim, nice=False)), 
+         text='Etiqueta',
+         color=alt.value('#000000'))
 
-text2 = alt.Chart({'values':[{'x': 6, 'Cigarros':df['Cigarros'].max()+2.5}]}).mark_text(
-    text='Tratamiento', angle=0, fontWeight=alt.FontWeight('bold')).encode(x='x:Q', y='Cigarros:Q')
+# Integrar todos los elementos en una sola gráfica
+plot = (rule + line + text).properties(
+        width=750,
+        height=350,
+        title=f'Consumo de Cigarros Semanales. {name}'
+)
 
-text3 = alt.Chart({'values':[{'x':21, 'Cigarros':df['Cigarros'].max()+2.5}]}).mark_text(
-    text='Seguimiento', angle=0, fontWeight=alt.FontWeight('bold')).encode(x='x:Q', y='Cigarros:Q')
-
-# Integrar el gráfico completo
-plot = alt.layer(vline_1, vline_2, line, text1, text2, text3).properties(
-    title=f'Consumo de Cigarros Semanales. {name}',
-    width=750,
-    height=250,
-    )
-
-# Integrar la gráfica del paciente
-st.altair_chart(plot, use_container_width=True)
+# Insertar gráfica
+st.altair_chart(plot)
