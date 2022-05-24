@@ -18,9 +18,9 @@ data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/mai
 with st.sidebar:
 
   # Definir un menú de selección para los concesionarios
-  st.subheader('Pacientes')
-  names = sorted(data['Nombre'].tolist())
-  name = st.selectbox(label='Selección del Paciente', options=names)
+  st.subheader('Usuarios')
+  names = sorted(data['Usuario'].tolist())
+  name = st.selectbox(label='Selección del Usuario', options=names)
 
 # Definir elementos de la página
 st.title('Registro de Análisis')  
@@ -28,13 +28,13 @@ st.title('Registro de Análisis')
 st.write(f'Evolución del Comportamiento de Consumo: {name}')
 
 # Filtrar información por paciente
-df = data[data['Nombre']==name].melt(id_vars=['ID', 'Nombre'], var_name='Semana', value_name='Cigarros').copy()
+df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
 
 # Crear la gráfica de líneas
 line = alt.Chart(df).mark_line(point=True).encode(
        x=alt.X('Semana:O', title='Semanas'),
        y='Cigarros:Q',
-       color='Nombre:N',
+       color='Usuario:N',
        ).properties(
            title=f'Consumo de Cigarros {name}',
            width=600,
