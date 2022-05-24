@@ -2,7 +2,6 @@
 import streamlit as st
 import altair as alt
 import pandas as pd
-from vega_datasets import data
 
 # Importar información
 data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
