@@ -1,6 +1,4 @@
-
 # Importar librerías de trabajo
-# from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -29,10 +27,12 @@ st.write(f'Evolución del Comportamiento de Consumo: {name}')
 
 # Filtrar información por paciente
 df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
+df['Semana'] = df['Semana'].astype(int)
+
 
 # Crear la gráfica de líneas
 line = alt.Chart(df).mark_line(point=True).encode(
-       x=alt.X('Semana:O', title='Semanas'),
+       x=alt.X('Semana:Q', title='Semanas'),
        y='Cigarros:Q',
        color='Usuario:N',
        ).properties(
@@ -41,5 +41,14 @@ line = alt.Chart(df).mark_line(point=True).encode(
            height=250,
            )
 
+# Definir líneas de separación para segmentos de línea Base y Tratamiento
+line_base = pd.DataFrame({'x':[4]})
+treatment = pd.DataFrame({'x':[8]})
+vline_1 = alt.Chart(line_base).mark_rule(color='red', strokeWidth=3).encode(x='x:Q')
+vline_2 = alt.Chart(treatment).mark_rule(color='red', strokeWidth=3).encode(x='x:Q')
+
+# Integrar el gráfico completo
+plot = alt.layer(vline_1, vline_2, line)
+
 # Integrar la gráfica del paciente
-st.altair_chart(line, use_container_width=True)
+st.altair_chart(plot, use_container_width=True)
