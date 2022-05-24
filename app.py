@@ -29,26 +29,37 @@ st.write(f'Evolución del Comportamiento de Consumo: {name}')
 df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
 df['Semana'] = df['Semana'].astype(int)
 
-
 # Crear la gráfica de líneas
+x_lim = [1, df['Semana'].max()]
+y_lim = [0, df['Cigarros'].max()+4]
 line = alt.Chart(df).mark_line(point=True).encode(
-       x=alt.X('Semana:Q', title='Semanas'),
-       y='Cigarros:Q',
+       x=alt.X('Semana:Q', title='Semanas', axis=alt.Axis(tickCount=df.shape[0]), scale=alt.Scale(domain=x_lim, nice=False)),
+       y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim)),
        color='Usuario:N',
-       ).properties(
-           title=f'Consumo de Cigarros {name}',
-           width=600,
-           height=250,
-           )
+       )
 
 # Definir líneas de separación para segmentos de línea Base y Tratamiento
 line_base = pd.DataFrame({'x':[4]})
 treatment = pd.DataFrame({'x':[8]})
-vline_1 = alt.Chart(line_base).mark_rule(color='red', strokeWidth=3).encode(x='x:Q')
-vline_2 = alt.Chart(treatment).mark_rule(color='red', strokeWidth=3).encode(x='x:Q')
+vline_1 = alt.Chart(line_base).mark_rule(color='red', strokeWidth=1.3).encode(x=alt.X('x:Q', scale=alt.Scale(domain=x_lim, nice=False)))
+vline_2 = alt.Chart(treatment).mark_rule(color='red', strokeWidth=1.3).encode(x=alt.X('x:Q', scale=alt.Scale(domain=x_lim, nice=False)))
+
+# Definir texto de secciones
+text1 = alt.Chart({'values':[{'x': 2.5, 'Cigarros':df['Cigarros'].max()+2.5}]}).mark_text(
+    text='Linea Base', angle=0, fontWeight=alt.FontWeight('bold')).encode(x='x:Q', y='Cigarros:Q')
+
+text2 = alt.Chart({'values':[{'x': 6, 'Cigarros':df['Cigarros'].max()+2.5}]}).mark_text(
+    text='Tratamiento', angle=0, fontWeight=alt.FontWeight('bold')).encode(x='x:Q', y='Cigarros:Q')
+
+text3 = alt.Chart({'values':[{'x':21, 'Cigarros':df['Cigarros'].max()+2.5}]}).mark_text(
+    text='Seguimiento', angle=0, fontWeight=alt.FontWeight('bold')).encode(x='x:Q', y='Cigarros:Q')
 
 # Integrar el gráfico completo
-plot = alt.layer(vline_1, vline_2, line)
+plot = alt.layer(vline_1, vline_2, line, text1, text2, text3).properties(
+    title=f'Consumo de Cigarros Semanales. {name}',
+    width=750,
+    height=250,
+    )
 
 # Integrar la gráfica del paciente
 st.altair_chart(plot, use_container_width=True)
