@@ -49,7 +49,7 @@ rule = alt.Chart(sections).mark_rule(
 # Integrar textos, usando el DataFrame de secciones
 text = alt.Chart(sections).mark_text(
     align='right',
-    baseline='middle',
+    # baseline='middle',
     # dx=7,
     dy=-140,
     size=10
