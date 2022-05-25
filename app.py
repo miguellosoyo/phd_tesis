@@ -51,7 +51,7 @@ text = alt.Chart(sections).mark_text(
     align='right',
     baseline='middle',
     fontWeight=alt.FontWeight('bold'),
-    dy=-138.8,
+    dy=-137,
     size=10
 ).encode(x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False)), 
          text='Etiqueta',
