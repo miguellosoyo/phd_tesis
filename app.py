@@ -1,7 +1,19 @@
+%%writefile app.py
+
+# ===============================================================================================================================================
+# Selección de Librerías
+# ===============================================================================================================================================
+
 # Importar librerías de trabajo
+from statsmodels.graphics.factorplots import interaction_plot
 import streamlit as st
 import altair as alt
 import pandas as pd
+import pingouin as pg
+
+# ===============================================================================================================================================
+# Tratamiento de la Información
+# ===============================================================================================================================================
 
 # Importar información
 data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
@@ -18,7 +30,33 @@ with st.sidebar:
 df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
 df['Semana'] = df['Semana'].astype(int)
 
+# ===============================================================================================================================================
+# Calcular NAP
+# ===============================================================================================================================================
+
+# Obtener los puntos de referencia de consumo de tabaco de la línea base
+k1, k2, k3, k4 = df[df['Semana'].isin(range(1,5))]['Cigarros']
+
+# Definir un nuevo DataFrame para comparar las referencias de la línea base
+user = df[(df['Semana'].isin(range(5,33)))]
+
+# Contar los solapamientos (overlaps), empates (ties), no solapamientos (nonoverlaps) y el total de pares (all_pairs)
+overlaps = sum(user['Cigarros']>k1) + sum(user['Cigarros']>k2) + sum(user['Cigarros']>k3) + sum(user['Cigarros']>k4)
+ties = sum(user['Cigarros']==k1) + sum(user['Cigarros']==k2) + sum(user['Cigarros']==k3) + sum(user['Cigarros']==k4)
+all_pairs = len(user)*4
+nonoverlaps = n_pairs - overlaps
+
+# Calcular el Nonovelap of All Pairs (NAP)
+NAP = round(((nonoverlaps+(0.5*ties))/all_pairs)*100,2)
+
+# Integrar métrica a la aplicación de Altair
+st.metric(label='NAP', value=f'{NAP}%')
+
+# ===============================================================================================================================================
 # Crear la gráfica de líneas
+# ===============================================================================================================================================
+
+# Definir los límites de la gráfica
 x_lim = [1, df['Semana'].max()]
 y_lim = [0, int(1.1*df['Cigarros'].max())+1]
 
@@ -67,3 +105,8 @@ plot = (rule + line + text).properties(
 
 # Insertar gráfica
 st.altair_chart(plot)
+
+# ===============================================================================================================================================
+# Calculo de ANOVA
+# ===============================================================================================================================================
+
