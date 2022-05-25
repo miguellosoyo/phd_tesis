@@ -51,7 +51,7 @@ text = alt.Chart(sections).mark_text(
     align='right',
     # baseline='middle',
     # dx=7,
-    dy=-138,
+    dy=-138.5,
     size=10
 ).encode(x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False)), 
         #  y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim, nice=False)), 
