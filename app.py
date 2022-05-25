@@ -20,7 +20,7 @@ df['Semana'] = df['Semana'].astype(int)
 
 # Crear la gráfica de líneas
 x_lim = [1, df['Semana'].max()]
-y_lim = [0, int(1.11*df['Cigarros'].max())]
+y_lim = [0, int(1.1*df['Cigarros'].max())+1]
 
 # Definir un DataFrame para las etiquetas de las secciones
 sections = pd.DataFrame([
