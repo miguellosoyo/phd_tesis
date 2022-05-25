@@ -49,14 +49,14 @@ rule = alt.Chart(sections).mark_rule(
 # Integrar textos, usando el DataFrame de secciones
 text = alt.Chart(sections).mark_text(
     align='right',
-    # baseline='middle',
-    # dx=7,
+    baseline='middle',
+    fontWeight=alt.FontWeight('bold'),
     dy=-138.8,
     size=10
 ).encode(x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False)), 
-        #  y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim, nice=False)), 
          text='Etiqueta',
-         color=alt.value('#000000'))
+         color=alt.value('#000000'),
+        )
 
 # Integrar todos los elementos en una sola gráfica
 plot = (rule + line + text).properties(
