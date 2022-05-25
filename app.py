@@ -9,7 +9,7 @@ from statsmodels.graphics.factorplots import interaction_plot
 import streamlit as st
 import altair as alt
 import pandas as pd
-import pingouin as pg
+# import pingouin as pg
 
 # ===============================================================================================================================================
 # Tratamiento de la Información
