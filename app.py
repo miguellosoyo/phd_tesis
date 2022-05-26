@@ -48,7 +48,7 @@ nonoverlaps = all_pairs - overlaps
 NAP = round(((nonoverlaps+(0.5*ties))/all_pairs)*100,2)
 
 # Integrar métrica a la aplicación de Altair
-st.metric(label='NAP', value=f'{NAP}%')
+# st.metric(label='NAP', value=f'{NAP}%')
 
 # ===============================================================================================================================================
 # Crear la gráfica de líneas
