@@ -1,5 +1,3 @@
-%%writefile app.py
-
 # ===============================================================================================================================================
 # Selección de Librerías
 # ===============================================================================================================================================
@@ -44,7 +42,7 @@ user = df[(df['Semana'].isin(range(5,33)))]
 overlaps = sum(user['Cigarros']>k1) + sum(user['Cigarros']>k2) + sum(user['Cigarros']>k3) + sum(user['Cigarros']>k4)
 ties = sum(user['Cigarros']==k1) + sum(user['Cigarros']==k2) + sum(user['Cigarros']==k3) + sum(user['Cigarros']==k4)
 all_pairs = len(user)*4
-nonoverlaps = n_pairs - overlaps
+nonoverlaps = all_pairs - overlaps
 
 # Calcular el Nonovelap of All Pairs (NAP)
 NAP = round(((nonoverlaps+(0.5*ties))/all_pairs)*100,2)
