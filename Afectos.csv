@@ -41,3 +41,45 @@ ID,Nombre,Usuario,Tipo,LB,Ses 1,Ses 2,Ses 3,Ses 4,Seg 1,Seg 2,Seg 3
 19,Fernando,Usuario_019,Negativo,49,41,25,25,24,26,26,25
 20,Paola,Usuario_020,Negativo,15,12,11,16,12,11,12,11
 21,Martin,Usuario_021,Negativo,46,37,27,45,30,17,31,23
+1,Orlando,Usuario_001,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+2,Mariana,Usuario_002,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+3,Angel,Usuario_003,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+4,Eduardo,Usuario_004,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+5,Donovan,Usuario_005,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+6,Elí,Usuario_006,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+7,Saúl,Usuario_007,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+8,Eurídice,Usuario_008,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+9,Enrique,Usuario_009,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+10,Angélica,Usuario_010,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+11,Javier Alejandro,Usuario_011,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+12,Armando,Usuario_012,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+13,Eliana,Usuario_013,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+14,Leticia,Usuario_014,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+15,Brandon,Usuario_015,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+16,Danery,Usuario_016,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+17,Frida,Usuario_017,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+18,Javier Ortiz,Usuario_018,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+19,Fernando,Usuario_019,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+20,Paola,Usuario_020,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+21,Martin,Usuario_021,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
+1,Orlando,Usuario_001,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+2,Mariana,Usuario_002,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+3,Angel,Usuario_003,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+4,Eduardo,Usuario_004,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+5,Donovan,Usuario_005,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+6,Elí,Usuario_006,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+7,Saúl,Usuario_007,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+8,Eurídice,Usuario_008,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+9,Enrique,Usuario_009,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+10,Angélica,Usuario_010,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+11,Javier Alejandro,Usuario_011,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+12,Armando,Usuario_012,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+13,Eliana,Usuario_013,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+14,Leticia,Usuario_014,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+15,Brandon,Usuario_015,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+16,Danery,Usuario_016,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+17,Frida,Usuario_017,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+18,Javier Ortiz,Usuario_018,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+19,Fernando,Usuario_019,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+20,Paola,Usuario_020,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+21,Martin,Usuario_021,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
