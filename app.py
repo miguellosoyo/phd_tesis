@@ -116,7 +116,7 @@ range_c = ['green', 'steelblue', 'firebrick', 'black']
 # Crear la gráfica de líneas
 weeks = df_affections['Semana'].unique().tolist()
 line = alt.Chart(df_affections).mark_line().encode(
-    x=alt.X('Semana:O', title='Evaluaciones', axis=alt.Axis(tickCount=df_affections.shape[0], grid=False, sort=weeks)),
+    x=alt.X('Semana:O', title='Evaluaciones', axis=alt.Axis(tickCount=df_affections.shape[0], grid=False), sort=weeks),
     y=alt.Y('Nivel de Afecto:Q', title='Niveles de Afecto', scale=alt.Scale(domain=y_lim), axis=alt.Axis(grid=False, tickCount=len(range(y_lim[0], y_lim[-1])))),
     color=alt.Color('Tipo', legend=alt.Legend(title='Tipo y Nivel de Afecto'), scale=alt.Scale(domain=domain_c, range=range_c)),
     strokeWidth=alt.condition(
