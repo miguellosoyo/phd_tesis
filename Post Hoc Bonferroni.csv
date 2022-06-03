@@ -1,0 +1,32 @@
+Escenario,.y.,group1,group2,n1,n2,statistic,df,p,p.adj,"p.adj.signif
+"
+Consumo,Consumo,LB,Post.Tratamiento,21,21,5,20,0.0000681,0.000681,***
+Consumo,Consumo,LB,Seguimiento.1,21,21,4.79,20,0.000111,0.001,**
+Consumo,Consumo,LB,Seguimiento.2,21,21,4.45,20,0.000246,0.002,**
+Consumo,Consumo,LB,Seguimiento.3,21,21,1.79,20,0.088,0.88,ns
+Consumo,Consumo,Post.Tratamiento,Seguimiento.1,21,21,2.76,20,0.012,0.121,ns
+Consumo,Consumo,Post.Tratamiento,Seguimiento.2,21,21,1.3,20,0.209,1,ns
+Consumo,Consumo,Post.Tratamiento,Seguimiento.3,21,21,-1.31,20,0.204,1,ns
+Consumo,Consumo,Seguimiento.1,Seguimiento.2,21,21,-1.69,20,0.107,1,ns
+Consumo,Consumo,Seguimiento.1,Seguimiento.3,21,21,-2.4,20,0.026,0.265,ns
+Consumo,Consumo,Seguimiento.2,Seguimiento.3,21,21,-2.01,20,0.058,0.579,ns
+Afecto Positivo,Afecto,LB,Post.Tratamiento,21,21,-4.14,20,0.000506,0.005,**
+Afecto Positivo,Afecto,LB,Seguimiento.1,21,21,-2.83,20,0.01,0.104,ns
+Afecto Positivo,Afecto,LB,Seguimiento.2,21,21,-3.16,20,0.005,0.049,*
+Afecto Positivo,Afecto,LB,Seguimiento.3,21,21,-1.45,20,0.164,1,ns
+Afecto Positivo,Afecto,Post.Tratamiento,Seguimiento.1,21,21,0.616,20,0.545,1,ns
+Afecto Positivo,Afecto,Post.Tratamiento,Seguimiento.2,21,21,0.513,20,0.614,1,ns
+Afecto Positivo,Afecto,Post.Tratamiento,Seguimiento.3,21,21,2.3,20,0.032,0.323,ns
+Afecto Positivo,Afecto,Seguimiento.1,Seguimiento.2,21,21,-0.187,20,0.853,1,ns
+Afecto Positivo,Afecto,Seguimiento.1,Seguimiento.3,21,21,1.46,20,0.159,1,ns
+Afecto Positivo,Afecto,Seguimiento.2,Seguimiento.3,21,21,2.45,20,0.024,0.235,ns
+Afecto Negativo,Afecto,LB,Post.Tratamiento,21,21,4.39,20,0.000282,0.003,**
+Afecto Negativo,Afecto,LB,Seguimiento.1,21,21,4.43,20,0.000257,0.003,**
+Afecto Negativo,Afecto,LB,Seguimiento.2,21,21,3.97,20,0.000757,0.008,**
+Afecto Negativo,Afecto,LB,Seguimiento.3,21,21,3.65,20,0.002,0.016,*
+Afecto Negativo,Afecto,Post.Tratamiento,Seguimiento.1,21,21,0.796,20,0.435,1,ns
+Afecto Negativo,Afecto,Post.Tratamiento,Seguimiento.2,21,21,-0.501,20,0.622,1,ns
+Afecto Negativo,Afecto,Post.Tratamiento,Seguimiento.3,21,21,-0.073,20,0.943,1,ns
+Afecto Negativo,Afecto,Seguimiento.1,Seguimiento.2,21,21,-1.7,20,0.105,1,ns
+Afecto Negativo,Afecto,Seguimiento.1,Seguimiento.3,21,21,-0.901,20,0.378,1,ns
+Afecto Negativo,Afecto,Seguimiento.2,Seguimiento.3,21,21,0.378,20,0.709,1,ns
