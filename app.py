@@ -124,14 +124,14 @@ line = alt.Chart(df_affections).mark_line().encode(
         alt.value(2),
         alt.value(4)
     ),
-    ).configure_axisX(labelAngle=0)
+    )
 
 # Integrar todos los elementos en una sola gráfica
 plot_2 = (line).properties(
     width=350,
     height=175,
     title=f'Niveles de Afecto. {name}'
-)
+).configure_axisX(labelAngle=0)
 
 # Definir límites del eje x e y
 x_lim = [1, data_users['Semana'].max()]
