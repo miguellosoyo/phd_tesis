@@ -121,7 +121,7 @@ line = alt.Chart(df_affections).mark_line().encode(
     color=alt.Color('Tipo', legend=alt.Legend(title='Tipo y Nivel de Afecto'), scale=alt.Scale(domain=domain_c, range=range_c)),
     strokeWidth=alt.condition(
         "(datum.Tipo == 'Media Negativo') | (datum.Tipo == 'Media Positivo')",
-        alt.value(1),
+        alt.value(2),
         alt.value(4)
     ),
     )
