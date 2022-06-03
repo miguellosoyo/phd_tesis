@@ -131,7 +131,7 @@ plot_2 = (line).properties(
     width=350,
     height=175,
     title=f'Niveles de Afecto. {name}'
-).configure_axisX(labelAngle=0)
+)
 
 # Definir límites del eje x e y
 x_lim = [1, data_users['Semana'].max()]
@@ -170,7 +170,7 @@ plot_3 = (area + rule + text).properties(
 )
 
 # Insertar gráfica
-st.altair_chart(plot_1 | plot_2)
+st.altair_chart((plot_1 | plot_2).configure_axisX(labelAngle=0))
 st.altair_chart(plot_3)
 
 # ===============================================================================================================================================
