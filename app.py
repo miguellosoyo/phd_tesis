@@ -74,8 +74,8 @@ sections = pd.DataFrame([
 
 # Crear la gráfica de líneas
 line = alt.Chart(df).mark_line(point=True, color='steelblue').encode(
-      x=alt.X('Semana:Q', title='Semanas', axis=alt.Axis(tickCount=df.shape[0]), scale=alt.Scale(domain=x_lim, nice=False)),
-      y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1]+2)))),
+      x=alt.X('Semana:Q', title='Semanas', axis=alt.Axis(tickCount=df.shape[0], grid=False), scale=alt.Scale(domain=x_lim, nice=False)),
+      y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim), axis=alt.Axis(grid=False, tickCount=len(range(y_lim[0], y_lim[-1]+2)))),
       )
 
 # Aplicar la regla de división por sección de Línea Base, Tratamiento y Seguimiento
@@ -116,8 +116,8 @@ range_c = ['green', 'steelblue', 'firebrick', 'black']
 # Crear la gráfica de líneas
 weeks = df_affections['Semana'].unique().tolist()
 line = alt.Chart(df_affections).mark_line().encode(
-    x=alt.X('Semana:O', title='Evaluaciones', axis=alt.Axis(tickCount=df_affections.shape[0]), sort=weeks),
-    y=alt.Y('Nivel de Afecto:Q', title='Niveles de Afecto', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1])))),
+    x=alt.X('Semana:O', title='Evaluaciones', axis=alt.Axis(tickCount=df_affections.shape[0], grid=False), sort=weeks),
+    y=alt.Y('Nivel de Afecto:Q', title='Niveles de Afecto', scale=alt.Scale(domain=y_lim), axis=alt.Axis(grid=False, tickCount=len(range(y_lim[0], y_lim[-1])))),
     color=alt.Color('Tipo', legend=alt.Legend(title='Tipo y Nivel de Afecto'), scale=alt.Scale(domain=domain_c, range=range_c)),
     strokeWidth=alt.condition(
         "(datum.Tipo == 'Media Negativo') | (datum.Tipo == 'Media Positivo')",
