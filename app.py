@@ -187,7 +187,7 @@ hide_table_row_index = """
                        """
 
 # Integrar el CSS con Markdown
-st.markdown(hide_table_row_index, unsafe_allow_html=True)
+# st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 # Importar información de ANOVAS y Bonferroni
 anova_df = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/ANOVAS.csv', encoding='latin')
