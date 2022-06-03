@@ -124,7 +124,7 @@ line = alt.Chart(df_affections).mark_line().encode(
         alt.value(2),
         alt.value(4)
     ),
-    )
+    ).configure_axisX(labelAngle=0)
 
 # Integrar todos los elementos en una sola gráfica
 plot_2 = (line).properties(
