@@ -139,8 +139,8 @@ y_lim = [0, int(1.1*data_users['Cigarros'].max())+10]
 
 # Crear la gráfica de área
 area = alt.Chart(data_users).mark_area().encode(
-    x=alt.X('Semana:O', title='Semanas',),
-    y=alt.Y('Cigarros:Q', ),
+    x=alt.X('Semana:O', title='Semanas', axis=alt.Axis(grid=False)),
+    y=alt.Y('Cigarros:Q', axis=alt.Axis(grid=False)),
     color='Usuario:N'
 )
 
