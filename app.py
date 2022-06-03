@@ -4,6 +4,10 @@ import altair as alt
 import numpy as np
 import pandas as pd
 
+# Definir una función para dar formato a las tablas ANOVA
+def anova_table(s, props=''):
+  return np.where(s<0.05, props, '')
+
 # ===============================================================================================================================================
 # Tratamiento de la Información
 # ===============================================================================================================================================
@@ -168,3 +172,47 @@ plot_3 = (area + rule + text).properties(
 # Insertar gráfica
 st.altair_chart(plot_1 | plot_2)
 st.altair_chart(plot_3)
+
+# ===============================================================================================================================================
+# Integrar tablas con los resultados de ANOVAS
+# ===============================================================================================================================================
+
+# Definir formato CSS para eliminar los índices de la tabla, centrar encabezados, aplicar líneas de separación y cambiar tipografía
+hide_table_row_index = """
+                        <style>
+                        tbody th {display:none;}
+                        .blank {display:none;}
+                        .col_heading {font-family: monospace; border: 3px solid white; text-align: center !important;}
+                        </style>
+                       """
+
+# Integrar el CSS con Markdown
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
+
+# Importar información de ANOVAS y Bonferroni
+anova_df = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/ANOVAS.csv', encoding='latin')
+bonferroni_df = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Post%20Hoc%20Bonferroni.csv', encoding='latin')
+
+st.subheader('ANOVA del Consumo de Tabaco')
+anova_consumption = anova_df[anova_df['Escenario']=='Consumo'].copy()
+st.table(anova_consumption)
+
+st.subheader('Contraste Post Hoc de Bonferroni para el Consumo de Tabaco')
+bonferroni_consumption = bonferroni_df[bonferroni_df['Escenario']=='Consumo'].copy()
+st.table(bonferroni_consumption)
+
+st.subheader('ANOVA sobre el Afecto Positivo')
+anova_positive = anova_df[anova_df['Escenario']=='Afecto Positivo'].copy()
+st.table(anova_positive)
+
+st.subheader('Contraste Post Hoc de Bonferroni para el Afecto Positivo')
+bonferroni_positive = bonferroni_df[bonferroni_df['Escenario']=='Afecto Positivo'].copy()
+st.table(bonferroni_positive)
+
+st.subheader('ANOVA sobre el Afecto Negativo')
+anova_negative = anova_df[anova_df['Escenario']=='Afecto Negativo'].copy()
+st.table(anova_negative)
+
+st.subheader('Contraste Post Hoc de Bonferroni para el Afecto Negativo')
+bonferroni_negative = bonferroni_df[bonferroni_df['Escenario']=='Afecto Negativo'].copy()
+st.table(bonferroni_negative)
