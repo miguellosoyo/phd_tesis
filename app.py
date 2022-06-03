@@ -77,7 +77,7 @@ line = alt.Chart(df).mark_line(point=True, color='steelblue').encode(
 # Aplicar la regla de división por sección de Línea Base, Tratamiento y Seguimiento
 rule = alt.Chart(sections).mark_rule(
     color='red',
-    strokeWidth=2
+    strokeWidth=1
 ).encode(
     x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False))
 ).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8))
@@ -111,10 +111,15 @@ range_c = ['green', 'steelblue', 'firebrick', 'black']
 
 # Crear la gráfica de líneas
 weeks = df_affections['Semana'].unique().tolist()
-line = alt.Chart(df_affections).mark_line(point=True).encode(
+line = alt.Chart(df_affections).mark_line().encode(
     x=alt.X('Semana:O', title='Evaluaciones', axis=alt.Axis(tickCount=df_affections.shape[0]), sort=weeks),
     y=alt.Y('Nivel de Afecto:Q', title='Niveles de Afecto', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1])))),
     color=alt.Color('Tipo', legend=alt.Legend(title='Tipo y Nivel de Afecto'), scale=alt.Scale(domain=domain_c, range=range_c)),
+    strokeWidth=alt.condition(
+        "(datum.Tipo == 'Media Negativo') | (datum.Tipo == 'Media Positivo')",
+        alt.value(1),
+        alt.value(4)
+    ),
     )
 
 # Integrar todos los elementos en una sola gráfica
@@ -138,7 +143,7 @@ area = alt.Chart(data_users).mark_area().encode(
 # Aplicar la regla de división por sección de Línea Base, Tratamiento y Seguimiento
 rule = alt.Chart(sections).mark_rule(
     color='red',
-    strokeWidth=3
+    strokeWidth=1
 ).encode(
     x=alt.X('Semana:O',)
 ).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8))
