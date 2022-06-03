@@ -1,13 +1,8 @@
-# ===============================================================================================================================================
-# Selección de Librerías
-# ===============================================================================================================================================
-
 # Importar librerías de trabajo
-from statsmodels.graphics.factorplots import interaction_plot
 import streamlit as st
 import altair as alt
+import numpy as np
 import pandas as pd
-# import pingouin as pg
 
 # ===============================================================================================================================================
 # Tratamiento de la Información
@@ -15,28 +10,34 @@ import pandas as pd
 
 # Importar información
 data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
+affections = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Afectos.csv', encoding='latin')
 
 # Integrar a la barra lateral la selección de concesionarios y tipo de reporte
-with st.sidebar:
+# with st.sidebar:
 
-  # Definir un menú de selección para los concesionarios
-  st.subheader('Usuarios')
-  names = sorted(data['Usuario'].tolist())
-  name = st.selectbox(label='Selección del Usuario', options=names)
+# Definir un menú de selección para los concesionarios
+st.subheader('Usuarios')
+names = sorted(data['Usuario'].tolist())
+name = st.selectbox(label='Selección del Usuario', options=names)
 
-# Filtrar información por paciente
+# Filtrar información por paciente para el caso de consumo de tabaco
+data_users = data.melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
 df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_name='Semana', value_name='Cigarros').copy()
+data_users['Semana'] = data_users['Semana'].astype(int)
 df['Semana'] = df['Semana'].astype(int)
+
+# Filtrar información por paciente para los casos de afecto
+df_affections = affections[affections['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario', 'Tipo'], var_name='Semana', value_name='Nivel de Afecto').copy()
 
 # ===============================================================================================================================================
 # Calcular NAP
 # ===============================================================================================================================================
 
 # Obtener los puntos de referencia de consumo de tabaco de la línea base
-k1, k2, k3, k4 = df[df['Semana'].isin(range(1,5))]['Cigarros']
+k1, k2, k3, k4 = df[df['Semana'].isin(range(1,5))]['Cigarros'].tolist()[:]
 
 # Definir un nuevo DataFrame para comparar las referencias de la línea base
-user = df[(df['Semana'].isin(range(5,33)))]
+user = df[(df['Semana'].isin(range(5,33)))].copy()
 
 # Contar los solapamientos (overlaps), empates (ties), no solapamientos (nonoverlaps) y el total de pares (all_pairs)
 overlaps = sum(user['Cigarros']>k1) + sum(user['Cigarros']>k2) + sum(user['Cigarros']>k3) + sum(user['Cigarros']>k4)
@@ -48,31 +49,30 @@ nonoverlaps = all_pairs - overlaps
 NAP = round(((nonoverlaps+(0.5*ties))/all_pairs)*100,2)
 
 # Integrar métrica a la aplicación de Altair
-# st.metric(label='NAP', value=f'{NAP}%')
+st.metric(label='NAP', value=f'{NAP}%')
 
 # ===============================================================================================================================================
-# Crear la gráfica de líneas
+# Crear la gráfica de líneas de consumo y afecto
 # ===============================================================================================================================================
 
-# Definir los límites de la gráfica
+# Definir límites del eje x e y
 x_lim = [1, df['Semana'].max()]
 y_lim = [0, int(1.1*df['Cigarros'].max())+1]
 
 # Definir un DataFrame para las etiquetas de las secciones
 sections = pd.DataFrame([
-                         {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
-                         {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
-                         {'Semana':3.8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Linea Base'},
-                         {'Semana':7.3, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
-                         {'Semana':21, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
-                         ])
+                        {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                        {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                        {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
+                        {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
+                        {'Semana':22, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
+                        ])
 
 # Crear la gráfica de líneas
-line = alt.Chart(df).mark_line(point=True).encode(
-       x=alt.X('Semana:Q', title='Semanas', axis=alt.Axis(tickCount=df.shape[0]), scale=alt.Scale(domain=x_lim, nice=False)),
-       y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1]+2)))),
-       color='Usuario:N',
-       )
+line = alt.Chart(df).mark_line(point=True, color='steelblue').encode(
+      x=alt.X('Semana:Q', title='Semanas', axis=alt.Axis(tickCount=df.shape[0]), scale=alt.Scale(domain=x_lim, nice=False)),
+      y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1]+2)))),
+      )
 
 # Aplicar la regla de división por sección de Línea Base, Tratamiento y Seguimiento
 rule = alt.Chart(sections).mark_rule(
@@ -87,24 +87,79 @@ text = alt.Chart(sections).mark_text(
     align='right',
     baseline='middle',
     fontWeight=alt.FontWeight('bold'),
-    dy=-133,
-    size=10
+    dy=-83,
+    dx=7,
+    size=7
 ).encode(x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False)), 
-         text='Etiqueta',
-         color=alt.value('#000000'),
-        )
+        #  y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim, nice=False)), 
+        text='Etiqueta',
+        color=alt.value('#000000'))
 
 # Integrar todos los elementos en una sola gráfica
-plot = (rule + line + text).properties(
-        width=750,
-        height=350,
-        title=f'Consumo de Cigarros Semanales. {name}'
+plot_1 = (rule + line + text).properties(
+    width=350,
+    height=175,
+    title=f'Consumo de Cigarros Semanales. {name}'
+)
+
+# Definir límites del eje y
+y_lim = [int(df_affections['Nivel de Afecto'].min()-1), int(df_affections['Nivel de Afecto'].max()+1)]
+
+# Asignar color a cada tipo de afecto
+domain_c = ['Media Positivo', 'Positivo', 'Negativo', 'Media Negativo']
+range_c = ['green', 'steelblue', 'firebrick', 'black']
+
+# Crear la gráfica de líneas
+weeks = df_affections['Semana'].unique().tolist()
+line = alt.Chart(df_affections).mark_line(point=True).encode(
+    x=alt.X('Semana:O', title='Evaluaciones', axis=alt.Axis(tickCount=df_affections.shape[0]), sort=weeks),
+    y=alt.Y('Nivel de Afecto:Q', title='Niveles de Afecto', scale=alt.Scale(domain=y_lim), axis=alt.Axis(tickCount=len(range(y_lim[0], y_lim[-1])))),
+    color=alt.Color('Tipo', legend=alt.Legend(title='Tipo y Nivel de Afecto'), scale=alt.Scale(domain=domain_c, range=range_c)),
+    )
+
+# Integrar todos los elementos en una sola gráfica
+plot_2 = (line).properties(
+    width=350,
+    height=175,
+    title=f'Niveles de Afecto. {name}'
+)
+
+# Definir límites del eje x e y
+x_lim = [1, data_users['Semana'].max()]
+y_lim = [0, int(1.1*data_users['Cigarros'].max())+10]
+
+# Crear la gráfica de área
+area = alt.Chart(data_users).mark_area().encode(
+    x=alt.X('Semana:O', title='Semanas',),
+    y=alt.Y('Cigarros:Q', ),
+    color='Usuario:N'
+)
+
+# Aplicar la regla de división por sección de Línea Base, Tratamiento y Seguimiento
+rule = alt.Chart(sections).mark_rule(
+    color='red',
+    strokeWidth=3
+).encode(
+    x=alt.X('Semana:O',)
+).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8))
+
+# Integrar textos, usando el DataFrame de secciones
+text = alt.Chart(sections).mark_text(
+    align='right',
+    baseline='middle',
+    fontWeight=alt.FontWeight('bold'),
+    dy=-132,
+    size=7
+).encode(x=alt.X('Semana:O',),
+        text='Etiqueta',
+        color=alt.value('#000000'))
+
+plot_3 = (area + rule + text).properties(
+    width=750,
+    height=350,
+    title=f'Consumo de Cigarros Semanales. Todos los Usuarios'
 )
 
 # Insertar gráfica
-st.altair_chart(plot)
-
-# ===============================================================================================================================================
-# Calculo de ANOVA
-# ===============================================================================================================================================
-
+st.altair_chart(plot_1 | plot_2)
+st.altair_chart(plot_3)
