@@ -19,6 +19,7 @@ affections = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tes
 # Seleccionar las primeras 12 semanas
 data = data.iloc[:, :15]
 affections = affections.iloc[:, :15]
+st.dataframe(affections)
 
 # Integrar a la barra lateral la selección de concesionarios y tipo de reporte
 # with st.sidebar:
