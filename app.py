@@ -119,7 +119,6 @@ range_c = ['green', 'steelblue', 'firebrick', 'black']
 
 # Seleccionar hasta la semana 12
 df_affections = df_affections[df_affections['Semana'].astype(int).isin([4, 5, 6, 7, 8, 12])]
-st.dataframe(df_affections)
 
 # Crear la gráfica de líneas
 weeks = df_affections['Semana'].unique().tolist()
