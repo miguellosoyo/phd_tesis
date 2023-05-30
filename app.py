@@ -18,6 +18,7 @@ affections = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tes
 
 # Seleccionar las primeras 12 semanas
 data = data.iloc[:, :15]
+affections = affections.iloc[:, :15]
 
 # Integrar a la barra lateral la selección de concesionarios y tipo de reporte
 # with st.sidebar:
@@ -73,6 +74,12 @@ sections = pd.DataFrame([
                         {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
                         {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
                         {'Semana':22, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
+                        ])
+sections = pd.DataFrame([
+                        {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                        {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                        {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
+                        {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
                         ])
 
 # Crear la gráfica de líneas
