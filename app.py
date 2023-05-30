@@ -16,6 +16,8 @@ def anova_table(s, props=''):
 data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
 affections = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Afectos.csv', encoding='latin')
 
+st.dataframe(data)
+
 # Integrar a la barra lateral la selección de concesionarios y tipo de reporte
 # with st.sidebar:
 
