@@ -73,13 +73,7 @@ sections = pd.DataFrame([
                         {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
                         {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
                         {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
-                        {'Semana':22, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
-                        ])
-sections = pd.DataFrame([
-                        {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
-                        {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
-                        {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
-                        {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
+                        {'Semana':9, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
                         ])
 
 # Crear la gráfica de líneas
