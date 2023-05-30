@@ -117,6 +117,9 @@ y_lim = [int(df_affections['Nivel de Afecto'].min()-1), int(df_affections['Nivel
 domain_c = ['Media Positivo', 'Positivo', 'Negativo', 'Media Negativo']
 range_c = ['green', 'steelblue', 'firebrick', 'black']
 
+# Definir límites del eje x e y
+st.dataframe(df_affections)
+
 # Crear la gráfica de líneas
 weeks = df_affections['Semana'].unique().tolist()
 line = alt.Chart(df_affections).mark_line().encode(
