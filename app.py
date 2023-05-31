@@ -25,7 +25,7 @@ affections = affections.iloc[:, :13]
 
 # Definir un menú de selección para los concesionarios
 st.subheader('Usuarios')
-names = sorted(data['Usuario'].tolist())
+names = sorted(data['Usuario'].tolist()[:15])
 name = st.selectbox(label='Selección del Usuario', options=names)
 
 # Filtrar información por paciente para el caso de consumo de tabaco
