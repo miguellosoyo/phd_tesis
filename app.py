@@ -75,6 +75,7 @@ sections = pd.DataFrame([
                         {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
                         {'Semana':11, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
                         ])
+st.dataframe(data_users)
 
 # Crear la gráfica de líneas
 line = alt.Chart(df).mark_line(point=True, color='steelblue').encode(
@@ -145,7 +146,6 @@ x_lim = [1, data_users['Semana'].max()]
 y_lim = [0, int(1.1*data_users['Cigarros'].max())+10]
 
 # Crear la gráfica de área
-st.dataframe(data_users)
 area = alt.Chart(data_users).mark_area().encode(
     x=alt.X('Semana:O', title='Semanas', axis=alt.Axis(grid=False)),
     y=alt.Y('Cigarros:Q', axis=alt.Axis(grid=False)),
