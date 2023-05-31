@@ -34,6 +34,9 @@ df = data[data['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario'], var_n
 data_users['Semana'] = data_users['Semana'].astype(int)
 df['Semana'] = df['Semana'].astype(int)
 
+# Seleccionar hasta el 15vo usuario
+data_users = data_users[data_users['ID'].astype(int)<=15].copy()
+
 # Filtrar información por paciente para los casos de afecto
 df_affections = affections[affections['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario', 'Tipo'], var_name='Semana', value_name='Nivel de Afecto').copy()
 
@@ -75,7 +78,6 @@ sections = pd.DataFrame([
                         {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
                         {'Semana':11, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
                         ])
-st.dataframe(data_users)
 
 # Crear la gráfica de líneas
 line = alt.Chart(df).mark_line(point=True, color='steelblue').encode(
