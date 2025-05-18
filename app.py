@@ -25,7 +25,7 @@ affections = affections.iloc[:, :13]
 
 # Definir un menú de selección para los concesionarios
 st.subheader('Usuarios')
-names = sorted(data['Usuario'].tolist()[:15])
+names = sorted(data['Usuario'].tolist())
 name = st.selectbox(label='Selección del Usuario', options=names)
 
 # Filtrar información por paciente para el caso de consumo de tabaco
@@ -35,14 +35,14 @@ data_users['Semana'] = data_users['Semana'].astype(int)
 df['Semana'] = df['Semana'].astype(int)
 
 # Seleccionar hasta el 15vo usuario
-df = df[df['ID'].astype(int)<=15].copy()
+# df = df[df['ID'].astype(int)<=15].copy()
 data_users = data_users[data_users['ID'].astype(int)<=15].copy()
 
 # Filtrar información por paciente para los casos de afecto
 df_affections = affections[affections['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario', 'Tipo'], var_name='Semana', value_name='Nivel de Afecto').copy()
 
 # Seleccionar hasta el 15vo usuario
-df_affections = df_affections[df_affections['ID'].astype(int)<=15].copy()
+# df_affections = df_affections[df_affections['ID'].astype(int)<=15].copy()
 
 # ===============================================================================================================================================
 # Calcular NAP
