@@ -36,7 +36,7 @@ df['Semana'] = df['Semana'].astype(int)
 
 # Seleccionar hasta el 15vo usuario
 # df = df[df['ID'].astype(int)<=15].copy()
-data_users = data_users[data_users['ID'].astype(int)<=15].copy()
+# data_users = data_users[data_users['ID'].astype(int)<=15].copy()
 
 # Filtrar información por paciente para los casos de afecto
 df_affections = affections[affections['Usuario']==name].melt(id_vars=['ID', 'Nombre', 'Usuario', 'Tipo'], var_name='Semana', value_name='Nivel de Afecto').copy()
