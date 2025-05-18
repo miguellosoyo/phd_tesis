@@ -1,85 +1,97 @@
 ID,Nombre,Usuario,Tipo,4,5,6,7,8,12,20,32
-1,Orlando,Usuario_001,Positivo,24,23,33,33,32,30,30,19
-2,Mariana,Usuario_002,Positivo,35,35,38,43,41,38,39,33
-3,Angel,Usuario_003,Positivo,38,40,38,28,27,35,34,21
-4,Eduardo,Usuario_004,Positivo,23,31,22,36,34,37,46,45
-5,Donovan,Usuario_005,Positivo,43,44,41,45,44,42,42,41
-6,Elí,Usuario_006,Positivo,31,22,20,42,44,32,41,43
-7,Saúl,Usuario_007,Positivo,23,18,41,41,41,41,45,34
-8,Eurídice,Usuario_008,Positivo,35,35,30,21,48,15,37,32
-9,Enrique,Usuario_009,Positivo,47,31,46,47,50,49,46,48
-10,Angélica,Usuario_010,Positivo,21,32,27,31,31,30,33,36
-11,Javier Alejandro,Usuario_011,Positivo,41,39,42,41,50,46,32,35
-12,Armando,Usuario_012,Positivo,32,33,35,31,31,29,39,35
-13,Eliana,Usuario_013,Positivo,30,30,36,36,35,37,38,28
-14,Leticia,Usuario_014,Positivo,32,20,28,36,38,49,42,40
-15,Brandon,Usuario_015,Positivo,22,25,20,26,30,32,25,30
-16,Danery,Usuario_016,Positivo,36,30,36,47,33,42,45,35
-17,Frida,Usuario_017,Positivo,30,17,37,37,32,41,35,38
-18,Javier Ortiz,Usuario_018,Positivo,38,36,29,38,39,32,26,22
-19,Fernando,Usuario_019,Positivo,25,33,42,43,47,41,43,41
-20,Paola,Usuario_020,Positivo,33,34,41,39,40,43,43,40
-21,Martin,Usuario_021,Positivo,22,25,36,34,41,41,28,31
 1,Orlando,Usuario_001,Negativo,32,24,19,13,12,15,18,38
-2,Mariana,Usuario_002,Negativo,20,26,25,25,24,23,21,28
-3,Angel,Usuario_003,Negativo,18,18,24,22,16,21,19,27
-4,Eduardo,Usuario_004,Negativo,35,24,25,17,27,27,15,23
-5,Donovan,Usuario_005,Negativo,39,29,36,29,41,39,41,40
-6,Elí,Usuario_006,Negativo,28,32,30,21,18,20,21,16
-7,Saúl,Usuario_007,Negativo,45,40,19,16,18,11,14,10
-8,Eurídice,Usuario_008,Negativo,44,45,43,38,23,43,42,34
-9,Enrique,Usuario_009,Negativo,33,45,21,19,14,18,19,20
-10,Angélica,Usuario_010,Negativo,28,23,21,22,35,25,26,17
-11,Javier Alejandro,Usuario_011,Negativo,30,23,23,19,17,19,30,22
-12,Armando,Usuario_012,Negativo,10,12,10,11,11,15,13,12
-13,Eliana,Usuario_013,Negativo,37,26,25,26,33,32,37,27
-14,Leticia,Usuario_014,Negativo,40,43,36,20,24,15,23,17
-15,Brandon,Usuario_015,Negativo,36,34,33,29,25,23,20,25
-16,Danery,Usuario_016,Negativo,36,37,21,14,21,10,13,15
-17,Frida,Usuario_017,Negativo,28,25,23,22,20,19,22,15
-18,Javier Ortiz,Usuario_018,Negativo,27,29,32,26,30,19,28,33
-19,Fernando,Usuario_019,Negativo,49,41,25,25,24,26,26,25
-20,Paola,Usuario_020,Negativo,15,12,11,16,12,11,12,11
-21,Martin,Usuario_021,Negativo,46,37,27,45,30,17,31,23
-1,Orlando,Usuario_001,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-2,Mariana,Usuario_002,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-3,Angel,Usuario_003,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-4,Eduardo,Usuario_004,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-5,Donovan,Usuario_005,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-6,Elí,Usuario_006,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-7,Saúl,Usuario_007,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-8,Eurídice,Usuario_008,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-9,Enrique,Usuario_009,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-10,Angélica,Usuario_010,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-11,Javier Alejandro,Usuario_011,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-12,Armando,Usuario_012,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-13,Eliana,Usuario_013,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-14,Leticia,Usuario_014,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-15,Brandon,Usuario_015,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-16,Danery,Usuario_016,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-17,Frida,Usuario_017,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-18,Javier Ortiz,Usuario_018,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-19,Fernando,Usuario_019,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-20,Paola,Usuario_020,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-21,Martin,Usuario_021,Media Positivo,33.5,33.5,33.5,33.5,33.5,33.5,33.5,33.5
-1,Orlando,Usuario_001,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-2,Mariana,Usuario_002,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-3,Angel,Usuario_003,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-4,Eduardo,Usuario_004,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-5,Donovan,Usuario_005,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-6,Elí,Usuario_006,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-7,Saúl,Usuario_007,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-8,Eurídice,Usuario_008,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-9,Enrique,Usuario_009,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-10,Angélica,Usuario_010,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-11,Javier Alejandro,Usuario_011,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-12,Armando,Usuario_012,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-13,Eliana,Usuario_013,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-14,Leticia,Usuario_014,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-15,Brandon,Usuario_015,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-16,Danery,Usuario_016,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-17,Frida,Usuario_017,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-18,Javier Ortiz,Usuario_018,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-19,Fernando,Usuario_019,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-20,Paola,Usuario_020,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
-21,Martin,Usuario_021,Media Negativo,20.1,20.1,20.1,20.1,20.1,20.1,20.1,20.1
+2,Randy,Usuario_002,Negativo,18,15,15,0,0,0,0,0
+3,Mariana,Usuario_003,Negativo,20,26,25,25,24,23,21,28
+4,Mariza,Usuario_004,Negativo,16,17,21,13,0,0,0,0
+5,Gisell,Usuario_005,Negativo,27,24,14,18,0,0,0,0
+6,Angel,Usuario_006,Negativo,18,18,24,22,16,21,19,27
+7,Eduardo,Usuario_007,Negativo,35,24,25,17,27,27,15,23
+8,Donovan,Usuario_008,Negativo,39,29,36,29,41,39,41,40
+9,Elí,Usuario_009,Negativo,28,32,30,21,18,20,21,16
+10,Saúl,Usuario_010,Negativo,45,40,19,16,18,11,14,10
+11,Eurídice,Usuario_011,Negativo,44,45,43,38,23,43,42,34
+12,Enrique,Usuario_012,Negativo,33,45,21,19,14,18,19,20
+13,Conchita,Usuario_013,Negativo,16,0,0,0,0,0,0,0
+14,Angélica,Usuario_014,Negativo,28,23,21,22,35,25,26,17
+15,Andrea,Usuario_015,Negativo,26,14,0,0,0,0,0,0
+16,Javier Alejandro,Usuario_016,Negativo,30,23,23,19,17,19,30,22
+17,Viridiana,Usuario_017,Negativo,21,20,0,0,0,0,0,0
+18,Armando,Usuario_018,Negativo,10,12,10,11,11,15,13,12
+19,Eliana,Usuario_019,Negativo,37,26,25,26,33,32,37,27
+20,Leticia,Usuario_020,Negativo,40,43,36,20,24,15,23,17
+21,Brandon,Usuario_021,Negativo,36,34,33,29,25,23,20,25
+22,Danery,Usuario_022,Negativo,36,37,21,14,21,10,13,15
+23,Carlos,Usuario_023,Negativo,30,0,0,0,0,0,0,0
+24,Judith,Usuario_024,Negativo,41,39,0,0,0,0,0,0
+25,Daniel,Usuario_025,Negativo,24,29,20,36,25,32,0,0
+26,Frida,Usuario_026,Negativo,28,25,23,22,20,19,22,15
+27,Javier Ortiz,Usuario_027,Negativo,27,29,32,26,30,19,28,33
+28,Fernando,Usuario_028,Negativo,49,41,25,25,24,26,26,25
+29,Paola,Usuario_029,Negativo,15,12,11,16,12,11,12,11
+30,Dixie,Usuario_030,Negativo,18,0,0,0,0,0,0,0
+31,Martin,Usuario_031,Negativo,46,37,27,45,30,17,31,23
+32,Abril,Usuario_032,Negativo,20,17,0,0,0,0,0,0
+33,Maribel,Usuario_033,Negativo,33,19,22,19,17,22,27,20
+34,Lourdes,Usuario_034,Negativo,33,0,0,0,0,0,0,0
+35,Marina,Usuario_035,Negativo,33,23,22,26,19,23,21,23
+36,Narda,Usuario_036,Negativo,31,28,34,19,19,31,13,22
+37,Cintli,Usuario_037,Negativo,32,34,26,17,18,33,25,30
+38,Maria,Usuario_038,Negativo,26,24,27,0,0,0,0,0
+39,Melissa,Usuario_039,Negativo,13,0,0,0,0,0,0,0
+40,Dulce,Usuario_040,Negativo,38,19,0,0,0,0,0,0
+41,Denisse,Usuario_041,Negativo,40,0,0,0,0,0,0,0
+42,Elihú,Usuario_042,Negativo,37,32,17,15,13,15,12,15
+43,Diana,Usuario_043,Negativo,24,0,0,0,0,0,0,0
+44,Alan,Usuario_044,Negativo,15,0,0,0,0,0,0,0
+45,Daniel G,Usuario_045,Negativo,25,40,26,20,18,22,21,27
+46,Luis A,Usuario_046,Negativo,24,21,15,16,14,16,15,14
+47,Hailie,Usuario_047,Negativo,26,27,24,25,21,23,22,21
+48,Zaira,Usuario_048,Negativo,22,30,20,18,28,15,12,18
+1,Orlando,Usuario_001,Positivo,24,23,33,33,32,30,30,19
+2,Randy,Usuario_002,Positivo,46,42,42,0,0,0,0,0
+3,Mariana,Usuario_003,Positivo,35,35,38,43,41,38,39,33
+4,Mariza,Usuario_004,Positivo,43,46,37,38,0,0,0,0
+5,Gisell,Usuario_005,Positivo,26,28,37,27,0,0,0,0
+6,Angel,Usuario_006,Positivo,38,40,38,28,27,35,34,21
+7,Eduardo,Usuario_007,Positivo,23,31,22,36,34,37,46,45
+8,Donovan,Usuario_008,Positivo,43,44,41,45,44,42,42,41
+9,Elí,Usuario_009,Positivo,31,22,20,42,44,32,41,43
+10,Saúl,Usuario_010,Positivo,23,18,41,41,41,41,45,34
+11,Eurídice,Usuario_011,Positivo,35,35,30,21,48,15,37,32
+12,Enrique,Usuario_012,Positivo,47,31,46,47,50,49,46,48
+13,Conchita,Usuario_013,Positivo,36,0,0,0,0,0,0,0
+14,Angélica,Usuario_014,Positivo,21,32,27,31,31,30,33,36
+15,Andrea,Usuario_015,Positivo,28,24,0,0,0,0,0,0
+16,Javier Alejandro,Usuario_016,Positivo,41,39,42,41,50,46,32,35
+17,Viridiana,Usuario_017,Positivo,33,34,0,0,0,0,0,0
+18,Armando,Usuario_018,Positivo,32,33,35,31,31,29,39,35
+19,Eliana,Usuario_019,Positivo,30,30,36,36,35,37,38,28
+20,Leticia,Usuario_020,Positivo,32,20,28,36,38,49,42,40
+21,Brandon,Usuario_021,Positivo,22,25,20,26,30,32,25,30
+22,Danery,Usuario_022,Positivo,36,30,36,47,33,42,45,35
+23,Carlos,Usuario_023,Positivo,27,0,0,0,0,0,0,0
+24,Judith,Usuario_024,Positivo,27,30,0,0,0,0,0,0
+25,Daniel,Usuario_025,Positivo,20,27,39,19,30,21,0,0
+26,Frida,Usuario_026,Positivo,30,17,37,37,32,41,35,38
+27,Javier Ortiz,Usuario_027,Positivo,38,36,29,38,39,32,26,22
+28,Fernando,Usuario_028,Positivo,25,33,42,43,47,41,43,41
+29,Paola,Usuario_029,Positivo,33,34,41,39,40,43,43,40
+30,Dixie,Usuario_030,Positivo,12,0,0,0,0,0,0,0
+31,Martin,Usuario_031,Positivo,22,25,36,34,41,41,28,31
+32,Abril,Usuario_032,Positivo,35,40,0,0,0,0,0,0
+33,Maribel,Usuario_033,Positivo,29,37,32,38,31,20,23,26
+34,Lourdes,Usuario_034,Positivo,26,0,0,0,0,0,0,0
+35,Marina,Usuario_035,Positivo,22,27,24,30,28,34,32,30
+36,Narda,Usuario_036,Positivo,38,32,27,39,38,29,39,32
+37,Cintli,Usuario_037,Positivo,29,23,25,26,25,26,26,25
+38,Maria,Usuario_038,Positivo,36,36,34,0,0,0,0,0
+39,Melissa,Usuario_039,Positivo,27,0,0,0,0,0,0,0
+40,Dulce,Usuario_040,Positivo,33,36,0,0,0,0,0,0
+41,Denisse,Usuario_041,Positivo,32,0,0,0,0,0,0,0
+42,Elihú,Usuario_042,Positivo,38,33,41,41,41,41,39,38
+43,Diana,Usuario_043,Positivo,17,0,0,0,0,0,0,0
+44,Alan,Usuario_044,Positivo,32,0,0,0,0,0,0,0
+45,Daniel G,Usuario_045,Positivo,33,36,40,47,42,23,35,20
+46,Luis A,Usuario_046,Positivo,31,35,34,35,34,35,32,34
+47,Hailie,Usuario_047,Positivo,23,28,30,25,35,32,30,30
+48,Zaira,Usuario_048,Positivo,49,26,34,44,39,39,47,43
