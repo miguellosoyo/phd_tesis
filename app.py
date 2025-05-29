@@ -72,7 +72,7 @@ st.metric(label='NAP', value=f'{NAP}%')
 
 # Definir límites del eje x e y
 x_lim = [1, df['Semana'].max()]
-y_lim = [0, int(1.15*df['Cigarros'].max())+1]
+y_lim = [0, int(1.1*df['Cigarros'].max())+1]
 
 # Definir un DataFrame para las etiquetas de las secciones
 sections = pd.DataFrame([
@@ -103,7 +103,7 @@ text = alt.Chart(sections).mark_text(
     baseline='middle',
     fontWeight=alt.FontWeight('bold'),
     dy=-83,
-    dx=7,
+    dx=12,
     size=12
 ).encode(x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False)), 
         #  y=alt.Y('Cigarros:Q', scale=alt.Scale(domain=y_lim, nice=False)), 
