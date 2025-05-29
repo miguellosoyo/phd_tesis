@@ -78,9 +78,9 @@ y_lim = [0, int(1.1*df['Cigarros'].max())+1]
 sections = pd.DataFrame([
                         {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
                         {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
-                        {'Semana':3, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
-                        {'Semana':11, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
-                        {'Semana':25, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
+                        {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
+                        {'Semana':7, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
+                        {'Semana':20, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
                         ])
 
 # Crear la gráfica de líneas
