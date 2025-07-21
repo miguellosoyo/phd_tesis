@@ -16,10 +16,6 @@ def anova_table(s, props=''):
 data = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Base%201.csv', encoding='latin')
 affections = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/phd_tesis/main/Afectos.csv', encoding='latin')
 
-# Seleccionar las primeras 12 semanas
-data = data#.iloc[:, :]
-affections = affections#.iloc[:, :]
-
 # Integrar a la barra lateral la selección de concesionarios y tipo de reporte
 # with st.sidebar:
 
@@ -79,8 +75,13 @@ sections = pd.DataFrame([
                         {'Semana':4, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
                         {'Semana':8, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
                         {'Semana':2, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'LB'},
-                        {'Semana':9, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Tratamiento'},
-                        {'Semana':20, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seguimiento'},
+                        {'Semana':6, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Trat'},
+                        {'Semana':10, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seg 1'},
+                        {'Semana':12, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                        {'Semana':16, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seg 2'},
+                        {'Semana':20, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
+                        {'Semana':28, 'Cigarros':y_lim[-1]-9, 'Etiqueta':'Seg 3'},
+                        {'Semana':32, 'Cigarros':y_lim[-1]-9, 'Etiqueta':''},
                         ])
 
 # Crear la gráfica de líneas
@@ -95,7 +96,7 @@ rule = alt.Chart(sections).mark_rule(
     strokeWidth=1
 ).encode(
     x=alt.X('Semana:Q', scale=alt.Scale(domain=x_lim, nice=False))
-).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8))
+).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8) | (alt.datum.Semana == 12) | (alt.datum.Semana == 20) | (alt.datum.Semana == 32))
 
 # Integrar textos, usando el DataFrame de secciones
 text = alt.Chart(sections).mark_text(
@@ -164,7 +165,7 @@ rule = alt.Chart(sections).mark_rule(
     strokeWidth=1
 ).encode(
     x=alt.X('Semana:O',)
-).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8))
+).transform_filter((alt.datum.Semana == 4) | (alt.datum.Semana == 8) | (alt.datum.Semana == 12) | (alt.datum.Semana == 20) | (alt.datum.Semana == 32))
 
 # Integrar textos, usando el DataFrame de secciones
 text = alt.Chart(sections).mark_text(
