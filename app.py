@@ -119,6 +119,7 @@ plot_1 = (rule + line + text).properties(
 )
 
 # Definir límites del eje y
+st.table(df_affections)
 y_lim = [int(df_affections['Nivel de Afecto'].min()-1), int(df_affections['Nivel de Afecto'].max()+1)]
 
 # Asignar color a cada tipo de afecto
@@ -126,7 +127,7 @@ domain_c = ['Media Positivo', 'Positivo', 'Negativo', 'Media Negativo']
 range_c = ['green', 'steelblue', 'firebrick', 'black']
 
 # Seleccionar hasta la semana 12
-df_affections = df_affections[df_affections['Semana'].astype(int).isin([4, 5, 6, 7, 8, 12, 20, 30])]
+df_affections = df_affections[df_affections['Semana'].astype(int).isin([4, 5, 6, 7, 8, 12, 20, 32])]
 
 # Crear la gráfica de líneas
 weeks = df_affections['Semana'].unique().tolist()
