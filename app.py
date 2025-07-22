@@ -119,7 +119,6 @@ plot_1 = (rule + line + text).properties(
 )
 
 # Definir límites del eje y
-st.table(df_affections)
 y_lim = [int(df_affections['Nivel de Afecto'].min()-1), int(df_affections['Nivel de Afecto'].max()+1)]
 
 # Asignar color a cada tipo de afecto
