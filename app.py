@@ -179,7 +179,7 @@ text = alt.Chart(sections).mark_text(
         color=alt.value('#000000'))
 
 plot_3 = (area + rule + text).properties(
-    width=950,
+    width=1250,
     height=650,
     title=f'Consumo de Cigarros Semanales. Todos los Usuarios'
 )
