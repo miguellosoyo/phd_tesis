@@ -172,14 +172,14 @@ text = alt.Chart(sections).mark_text(
     align='right',
     baseline='middle',
     fontWeight=alt.FontWeight('bold'),
-    dy=-132,
+    dy=-90, # -132
     size=12
 ).encode(x=alt.X('Semana:O',),
         text='Etiqueta',
         color=alt.value('#000000'))
 
 plot_3 = (area + rule + text).properties(
-    width=1250,
+    width=1550,
     height=650,
     title=f'Consumo de Cigarros Semanales. Todos los Usuarios'
 )
