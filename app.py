@@ -181,7 +181,7 @@ text = alt.Chart(sections).mark_text(
 plot_3 = (area + rule + text).properties(
     width=1550,
     height=650,
-    title=f'Consumo de Cigarros Semanales. Todos los Usuarios'
+    title=f'\nConsumo de Cigarros Semanales. Todos los Usuarios'
 )
 
 # Insertar gráfica
